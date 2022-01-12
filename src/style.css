@@ -3,9 +3,10 @@
   padding: 0;
   list-style: none;
 }
- .grey {
-   color:rgb(92, 87, 87)
- }
+
+.grey {
+  color: rgb(92, 87, 87);
+}
 
 .container {
   display: grid;
@@ -36,6 +37,10 @@
   display: flex;
   font-size: 20px;
   font-weight: bolder;
+}
+
+.second i {
+  cursor: pointer;
 }
 
 .first li i {
@@ -76,10 +81,6 @@
   align-items: center;
 }
 
-.second i {
-  cursor: pointer;
-}
-
 .right {
   margin-right: 10px;
   cursor: pointer;
@@ -95,5 +96,5 @@ p {
   margin: 0;
   text-align: center;
   cursor: pointer;
-  padding: 1vh
+  padding: 1vh;
 }

@@ -1,9 +1,8 @@
-import _ from 'lodash'
 import './style.css'
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
+import '@fortawesome/fontawesome-free/js/fontawesome.js';
+import '@fortawesome/fontawesome-free/js/solid.js';
+import '@fortawesome/fontawesome-free/js/regular.js';
+import '@fortawesome/fontawesome-free/js/brands.js';
 
 const listToDo = [
   {
@@ -16,15 +15,15 @@ const listToDo = [
     completed: false,
     index: 1,
   },
-]
+];
 
 const tasksToDo = document.querySelector('.tasks');
 
 const renderList = () => {
   const sortedTodo = listToDo.sort((a, b) => a.index - b.index);
 
-  tasksToDo.innerHTML = ''
-  sortedTodo.forEach(todo => {
+  tasksToDo.innerHTML = '';
+  sortedTodo.forEach((todo) => {
     const taskContainer = document.createElement('ul');
     const taskEl = document.createElement('li');
     const spanEl = document.createElement('span');
@@ -47,11 +46,11 @@ const renderList = () => {
 
     taskEl.appendChild(refresh);
     refresh.classList.add('left', 'grey', 'fas', 'fa-ellipsis-v');
-  })
-  let description = document.createElement('p');
+  });
+  const description = document.createElement('p');
   tasksToDo.appendChild(description);
   description.classList.add('grey');
-  description.innerText = `Clear all completed`;
-}
+  description.innerText = `'Clear all completed'`;
+};
 
 renderList();
