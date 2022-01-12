@@ -4,15 +4,8 @@ import '@fortawesome/fontawesome-free/js/solid.js';
 import '@fortawesome/fontawesome-free/js/regular.js';
 import '@fortawesome/fontawesome-free/js/brands.js';
 
-class listToDo {
-  constructor(description, index, completed = false) {
-    this.description = description;
-    this.completed = completed;
-    this.index = index;
-  }
-}
- 
-const tasksToDo = document.querySelector('.tasks');
+
+ const tasksToDo = document.querySelector('.tasks');
 
 const renderList = () => {
   const sortedTodo = listToDo.sort((a, b) => a.index - b.index);
