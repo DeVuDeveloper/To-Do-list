@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 import '@fortawesome/fontawesome-free/js/fontawesome.js';
 import '@fortawesome/fontawesome-free/js/solid.js';
 import '@fortawesome/fontawesome-free/js/regular.js';
@@ -50,7 +50,7 @@ const renderList = () => {
   const description = document.createElement('p');
   tasksToDo.appendChild(description);
   description.classList.add('grey');
-  description.innerText = `'Clear all completed'`;
+  description.innerText = 'Clear all completed';
 };
 
 renderList();
