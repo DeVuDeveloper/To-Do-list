@@ -4,19 +4,14 @@ import '@fortawesome/fontawesome-free/js/solid.js';
 import '@fortawesome/fontawesome-free/js/regular.js';
 import '@fortawesome/fontawesome-free/js/brands.js';
 
-const listToDo = [
-  {
-    description: 'do2',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'do1',
-    completed: false,
-    index: 1,
-  },
-];
-
+class listToDo {
+  constructor(description, index, completed = false) {
+    this.description = description;
+    this.completed = completed;
+    this.index = index;
+  }
+}
+ 
 const tasksToDo = document.querySelector('.tasks');
 
 const renderList = () => {
