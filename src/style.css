@@ -3,88 +3,97 @@
   padding: 0;
   list-style: none;
 }
+ .grey {
+   color:rgb(92, 87, 87)
+ }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: start;
-    border: 1px solid rgb(233, 224, 219);
-    box-shadow: -5px 5px 5px rgb(216, 212, 212), 5px 5px 5px #cac4c4;
-    width: 50%;
-    padding: 0;
-    margin: 32vh auto;
-  }
-  
-  .first {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .first li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid rgb(167, 164, 164);
-    height: 2rem;
-    padding: 10px;
-  }
-  
-  .first span {
-    display: flex;
-  }
-  
-  .first i {
-    margin: 0 10px;
-  }
-  
-  .first input {
-    font-style: italic;
-    border: none;
-    width: 100%;
-    height: 100%;
-  }
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: start;
+  border: 1px solid rgb(233, 224, 219);
+  box-shadow: -5px 5px 5px rgb(216, 212, 212), 5px 5px 5px #cac4c4;
+  width: 50%;
+  padding: 0;
+  margin: 32vh auto;
+}
 
-  .second {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-  }
+.first {
+  margin: 0;
+  padding: 0;
+}
 
-  .second li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid rgb(167, 164, 164);
-    height: 2rem;
-    padding: 0 20px 0 10px ;
-  }
+.first li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(167, 164, 164);
+  height: 2vh;
+  padding: 10px;
+}
 
-  p {
-    margin: 0;
-    text-align: center;
-  }
-  
-  /* input:focus {
-    outline: none;
-  }
-  
-  button:hover,
-  i:hover {
-    cursor: pointer;
-  } */
-  
-  /* #clearTasks {
-    text-align: center;
-    order: 99999999999999;
-    height: 3rem;
-    width: 100%;
-    background-color: #f6f6f6;
-    border: none;
-  }
-  
-  #push {
-    border: none;
-    background: none;
-    padding: 0;
-  } */
+.first span {
+  display: flex;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.first li i {
+  margin: 0 10px;
+}
+
+.first input {
+  font-style: italic;
+  border: none;
+  width: 80%;
+  height: 3vh;
+}
+
+.first button {
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.second {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.second li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(167, 164, 164);
+  height: 4.5vh;
+  padding: 0 20px 0 10px;
+}
+
+.second span {
+  display: flex;
+  align-items: center;
+}
+
+.second i {
+  cursor: pointer;
+}
+
+.right {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.left {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+p {
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  padding: 1vh
+}
