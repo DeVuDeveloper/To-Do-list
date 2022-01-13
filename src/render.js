@@ -48,10 +48,9 @@ const renderList = (listToDo) => {
       todoInp.parentNode.parentNode.querySelector('button').remove();
       const btn = document.createElement('button'); 
       todoInp.parentNode.parentNode.appendChild(btn);
-
       const trashIcon = document.createElement('i');
       trashIcon.classList.add('iconT', 'grey', 'fas', 'fa-trash', 'fa-2x');
-      btn.appendChild(trashIcon );
+      btn.appendChild(trashIcon);
       btn.style.border = 'none';
       btn.onclick = () => {
         listToDo.removeToDo(Number(todoInp.id));
@@ -62,7 +61,7 @@ const renderList = (listToDo) => {
     todoInp.addEventListener('focusout', () => {
       todoInp.readOnly = true;
       todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#fff';
-        setTimeout(() => {
+      setTimeout(() => {
         todoInp.parentNode.parentNode.querySelector('button').remove();
         const btn = document.createElement('button');
         const dotIcon = document.createElement('i');
