@@ -1,4 +1,4 @@
-  class ToDo {
+class ToDo {
   constructor() {
     this.list = localStorage.getItem('toDoTask')
       ? JSON.parse(localStorage.getItem('toDoTask'))
@@ -11,7 +11,7 @@
   }
 
   removeToDo(todoID) {
-    this.list = this.list.filter((todo) => todo.id !== todoID);
+    this.list = this.list.filter((todo) => todo.index !== todoID);
     this.list.forEach((todo, index) => {
       todo.index = index + 1;
     });
@@ -19,16 +19,14 @@
   }
 
   editToDo(todoId, todoDescription) {
-  const newTask= this.list.map((todo) => {
-    if (todo.id === todoId) {
-      return { ...todo, description: todoDescription };
-    }
-    return todo;
-  });
-   localStorage.setItem('toDoTask', JSON.stringify(newTask));
-}
+    const newTask = this.list.map((todo) => {
+      if (todo.index === todoId) {
+        return { ...todo, description: todoDescription };
+      }
+      return todo;
+    });
+    localStorage.setItem('toDoTask', JSON.stringify(newTask));
+  }
 }
 
 export default ToDo;
-
-

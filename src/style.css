@@ -108,3 +108,10 @@ p {
   cursor: pointer;
   padding: 1vh;
 }
+
+.edit-text {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+}
