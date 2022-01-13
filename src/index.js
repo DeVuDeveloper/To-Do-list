@@ -25,8 +25,7 @@ addBtn.onclick = () => {
   }
 };
 
-
-  const enterKey = (event) => {
+const enterKey = (event) => {
   if (event.which === 13 || event.keyCode === 13) {
     event.preventDefault();
     addBtn.onclick = () => {
