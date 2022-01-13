@@ -10,7 +10,7 @@ const renderList = (listToDo) => {
     const square = document.createElement('i');
     const removeIcon = document.createElement('i');
     const remove = document.createElement('button');
-    const paragraph = document.createElement('input');
+    const textToDo = document.createElement('input');
 
     tasksToDo.appendChild(taskContainer);
     taskContainer.classList.add('second');
@@ -19,17 +19,17 @@ const renderList = (listToDo) => {
     spanEl.classList.add('grey');
     spanEl.appendChild(square);
     square.classList.add('right', 'grey', 'far', 'fa-square');
-    spanEl.appendChild(paragraph);
-    paragraph.classList.add('edit-text');
-    paragraph.setAttribute('id', todo.index);
-    paragraph.value = todo.description;
-    paragraph.readOnly = true;
+    spanEl.appendChild(textToDo);
+    textToDo.classList.add('edit-text');
+    textToDo.setAttribute('id', todo.index);
+    textToDo.value = todo.description;
+    textToDo.readOnly = true;
     taskEl.appendChild(remove);
     remove.classList.add('left', 'grey');
     remove.appendChild(removeIcon);
     remove.setAttribute('id', todo.index);
     remove.style.border = 'none';
-    removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v');
+    removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
   });
 
   const clear = document.createElement('p');
@@ -37,29 +37,22 @@ const renderList = (listToDo) => {
   clear.classList.add('grey');
   clear.innerText = 'Clear all completed';
 
-  //   const deleteToDo = document.querySelectorAll('.left');
-  //   deleteToDo.forEach((el) => {
-  //     el.onclick = () => {
-  //       listToDo.removeToDo(Number(el.id));
-  //       renderList(listToDo);
-  //     };
-  //   });
-
   const todoInput = document.querySelectorAll('.edit-text');
   todoInput.forEach((todoInp) => {
     todoInp.onclick = () => {
       todoInp.readOnly = false;
       todoInp.focus();
 
-      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = 'yellow';
+      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#d3d3d3';
 
-      //show the trash
       todoInp.parentNode.parentNode.querySelector('button').remove();
-      const btn = document.createElement('button');
-      const removeIcon = document.createElement('i');
-      removeIcon.classList.add('iconR', 'fas', 'fa-trash');
-      btn.appendChild(removeIcon);
-      todoInp.parentNode.appendChild(btn);
+      const btn = document.createElement('button'); 
+      todoInp.parentNode.parentNode.appendChild(btn);
+
+      const trashIcon = document.createElement('i');
+      trashIcon.classList.add('iconT', 'grey', 'fas', 'fa-trash', 'fa-2x');
+      btn.appendChild(trashIcon );
+      btn.style.border = 'none';
       btn.onclick = () => {
         listToDo.removeToDo(Number(todoInp.id));
         renderList(listToDo);
@@ -68,16 +61,14 @@ const renderList = (listToDo) => {
 
     todoInp.addEventListener('focusout', () => {
       todoInp.readOnly = true;
-      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = 'white';
-
-      //hide trash
-      setTimeout(() => {
+      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#fff';
+        setTimeout(() => {
         todoInp.parentNode.parentNode.querySelector('button').remove();
         const btn = document.createElement('button');
-        const removeIcon = document.createElement('i');
-        removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v');
-        btn.appendChild(removeIcon);
-        todoInp.parentNode.appendChild(btn);
+        const dotIcon = document.createElement('i');
+        dotIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
+        btn.appendChild(dotIcon);
+        todoInp.parentNode.parentNode.appendChild(btn);
       }, 200);
     });
 

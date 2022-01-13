@@ -63,7 +63,8 @@ form input {
 form button {
   margin-right: 22px;
   border: none;
-  cursor: pointer;
+  background: transparent;
+  pointer-events: none;
 }
 
 .iconR {
@@ -107,6 +108,11 @@ p {
   text-align: center;
   cursor: pointer;
   padding: 1vh;
+}
+
+.second input {
+  font-size: 20px;
+  color: rgb(92, 87, 87);
 }
 
 .edit-text {

@@ -10,8 +10,8 @@ class ToDo {
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  removeToDo(todoID) {
-    this.list = this.list.filter((todo) => todo.index !== todoID);
+  removeToDo(ID) {
+    this.list = this.list.filter((todo) => todo.index !== ID);
     this.list.forEach((todo, index) => {
       todo.index = index + 1;
     });
