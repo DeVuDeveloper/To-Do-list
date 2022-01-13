@@ -10,23 +10,23 @@
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  removeTodo(todoID) {
-    this.list = this.list.filter((todo) => todo.index !== todoID);
+  removeToDo(todoID) {
+    this.list = this.list.filter((todo) => todo.id !== todoID);
     this.list.forEach((todo, index) => {
       todo.index = index + 1;
     });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  editTodo(todoId, todoDescription) {
-    const newData = this.list.map((todo) => {
-      if (todo.index === todoId) {
-        return { ...todo, description: todoDescription };
-      }
-      return todo;
-    });
-    localStorage.setItem('toDoTask', JSON.stringify(newData));
-  }
+  editToDo(todoId, todoDescription) {
+  const newTask= this.list.map((todo) => {
+    if (todo.id === todoId) {
+      return { ...todo, description: todoDescription };
+    }
+    return todo;
+  });
+   localStorage.setItem('toDoTask', JSON.stringify(newTask));
+}
 }
 
 export default ToDo;

@@ -47,17 +47,27 @@
   margin: 0 10px;
 }
 
-.first input {
-  font-style: italic;
-  border: none;
-  width: 80%;
-  height: 3vh;
+form {
+  display: flex;
+  justify-content: space-between;
 }
 
-.first button {
+form input {
+  font-style: italic;
+  width: 70%;
+  height: 4vh;
   border: none;
-  margin-right: 10px;
+  padding: 0 10px;
+}
+
+form button {
+  margin-right: 22px;
+  border: none;
   cursor: pointer;
+}
+
+.iconR {
+  height: 2vh;
 }
 
 .second {

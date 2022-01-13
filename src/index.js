@@ -5,18 +5,20 @@ import '@fortawesome/fontawesome-free/js/regular.js';
 import '@fortawesome/fontawesome-free/js/brands.js';
 
 import ToDo from './constructor.js';
+import renderList from './render.js';
 
 const listToDo = new ToDo();
 renderList(listToDo);
 
-const addTodoBtn = document.querySelector('.add');
-addTodoBtn.addEventListener('click', () => {
-  const description = document.querySelector('#input').value.trim();
+const addBtn = document.querySelector('.add');
+addBtn.onclick = () => {
+  let description = document.querySelector('#input').value;
   const completed = false;
   const index = listToDo.list.length + 1;
-  const newTodo = { description, completed, index };
+  const newTask = { description, completed, index };
+  
   if (description) {
-    listToDo.addTodo(newTodo);
+    listToDo.addTodo(newTask);
     renderList(listToDo);
   }
-});
+};
