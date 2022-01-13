@@ -52,6 +52,13 @@ form {
   justify-content: space-between;
 }
 
+form button {
+  margin-right: 22px;
+  border: none;
+  background: transparent;
+  pointer-events: none;
+}
+
 .first button {
   border: none;
   background: transparent;
@@ -63,13 +70,6 @@ form input {
   height: 4vh;
   border: none;
   padding: 0 10px;
-}
-
-form button {
-  margin-right: 22px;
-  border: none;
-  background: transparent;
-  pointer-events: none;
 }
 
 .iconR {

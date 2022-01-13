@@ -25,7 +25,7 @@ addBtn.onclick = () => {
   }
 };
 
-const enterKey = (event) => {
+  const enterKey = (event) => {
   if (event.which === 13 || event.keyCode === 13) {
     event.preventDefault();
     addBtn.onclick = () => {
@@ -36,7 +36,8 @@ const enterKey = (event) => {
       if (description) {
         document.querySelector('#input').value = '';
         listToDo.addTodo(newTask);
-        renderList(listToDo, enterKey);
+        renderList(listToDo);
+        enterKey();
       }
     };
   }
