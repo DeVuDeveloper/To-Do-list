@@ -52,6 +52,11 @@ form {
   justify-content: space-between;
 }
 
+.first button {
+  border: none;
+  background: transparent;
+}
+
 form input {
   font-style: italic;
   width: 70%;

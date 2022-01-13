@@ -35,8 +35,8 @@ const enterKey = (event) => {
       const newTask = { description, completed, index };
       if (description) {
         document.querySelector('#input').value = '';
-        enterKey.listToDo.addTodo(newTask);
-        renderList(listToDo);
+        listToDo.addTodo(newTask);
+        renderList(listToDo, enterKey);
       }
     };
   }

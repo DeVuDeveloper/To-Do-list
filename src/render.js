@@ -46,7 +46,7 @@ const renderList = (listToDo) => {
       todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#d3d3d3';
 
       todoInp.parentNode.parentNode.querySelector('button').remove();
-      const btn = document.createElement('button'); 
+      const btn = document.createElement('button');
       todoInp.parentNode.parentNode.appendChild(btn);
       const trashIcon = document.createElement('i');
       trashIcon.classList.add('iconT', 'grey', 'fas', 'fa-trash', 'fa-2x');
