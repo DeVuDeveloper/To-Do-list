@@ -126,7 +126,7 @@ p {
   margin-right: 20px;
 }
 
-.checkbox:before {
+.checkbox::before {
   content: "";
   display: block;
   position: absolute;
@@ -137,7 +137,7 @@ p {
   background-color: #e6dddd;
 }
 
-.checkbox:checked:before {
+.checkbox:checked::before {
   content: "";
   display: block;
   position: absolute;
@@ -148,7 +148,7 @@ p {
   background-color: green;
 }
 
-.checkbox:checked:after {
+.checkbox:checked::after {
   content: "";
   display: block;
   width: 5px;
