@@ -120,6 +120,49 @@ p {
   color: rgb(92, 87, 87);
 }
 
+.checkbox {
+  margin-right: 20px;
+}
+
+.checkbox {
+  position: relative;
+  cursor: pointer;
+}
+.checkbox:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #e6dddd;
+}
+.checkbox:checked:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: green;
+}
+.checkbox:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+
 .edit-text {
   border: none;
   outline: none;

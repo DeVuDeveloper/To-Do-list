@@ -7,18 +7,21 @@ const renderList = (listToDo) => {
     const taskContainer = document.createElement('ul');
     const taskEl = document.createElement('li');
     const spanEl = document.createElement('span');
-    const square = document.createElement('i');
+    // const square = document.createElement('i');
     const removeIcon = document.createElement('i');
     const remove = document.createElement('button');
     const textToDo = document.createElement('input');
+    const checkbox = document.createElement('input');
+
 
     tasksToDo.appendChild(taskContainer);
     taskContainer.classList.add('second');
     taskContainer.appendChild(taskEl);
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
-    spanEl.appendChild(square);
-    square.classList.add('right', 'grey', 'far', 'fa-square');
+    spanEl.appendChild(checkbox);
+    checkbox.classList.add('right', 'checkbox');
+    checkbox.setAttribute('type', 'checkbox')
     spanEl.appendChild(textToDo);
     textToDo.classList.add('edit-text');
     textToDo.setAttribute('id', todo.index);

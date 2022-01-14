@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/js/brands.js';
 import ToDo from './constructor.js';
 import renderList from './render.js';
 
-const listToDo = new ToDo();
+let listToDo = new ToDo();
 renderList(listToDo);
 
 const addBtn = document.querySelector('.add');
