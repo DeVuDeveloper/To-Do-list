@@ -29,4 +29,4 @@ addBtn.onclick = () => {
 refresh.onclick = () => {
   listToDo = new ToDo();
   renderList(listToDo);
-}
+};

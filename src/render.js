@@ -13,7 +13,6 @@ const renderList = (listToDo) => {
     const textToDo = document.createElement('input');
     const checkbox = document.createElement('input');
 
-
     tasksToDo.appendChild(taskContainer);
     taskContainer.classList.add('second');
     taskContainer.appendChild(taskEl);
@@ -21,7 +20,7 @@ const renderList = (listToDo) => {
     spanEl.classList.add('grey');
     spanEl.appendChild(checkbox);
     checkbox.classList.add('right', 'checkbox');
-    checkbox.setAttribute('type', 'checkbox')
+    checkbox.setAttribute('type', 'checkbox');
     spanEl.appendChild(textToDo);
     textToDo.classList.add('edit-text');
     textToDo.setAttribute('id', todo.index);

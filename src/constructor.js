@@ -21,8 +21,8 @@ class ToDo {
   editToDo(todoId, todoDescription) {
     this.list = this.list.map((todo) => {
       if (todo.index === todoId) {
-        todo.description = todoDescription
-    }
+        todo.description = todoDescription;
+      }
       return todo;
     });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));

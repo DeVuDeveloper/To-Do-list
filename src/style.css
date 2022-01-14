@@ -121,13 +121,11 @@ p {
 }
 
 .checkbox {
+  position: relative;
+  cursor: pointer;
   margin-right: 20px;
 }
 
-.checkbox {
-  position: relative;
-  cursor: pointer;
-}
 .checkbox:before {
   content: "";
   display: block;
@@ -138,6 +136,7 @@ p {
   left: 0;
   background-color: #e6dddd;
 }
+
 .checkbox:checked:before {
   content: "";
   display: block;
@@ -148,6 +147,7 @@ p {
   left: 0;
   background-color: green;
 }
+
 .checkbox:checked:after {
   content: "";
   display: block;
