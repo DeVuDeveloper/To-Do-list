@@ -11,6 +11,7 @@ const listToDo = new ToDo();
 renderList(listToDo);
 
 const addBtn = document.querySelector('.add');
+const refresh = document.querySelector('.refresh');
 
 addBtn.onclick = () => {
   const description = document.querySelector('#input').value;
@@ -25,20 +26,7 @@ addBtn.onclick = () => {
   }
 };
 
-const enterKey = (event) => {
-  if (event.which === 13 || event.keyCode === 13) {
-    event.preventDefault();
-    addBtn.onclick = () => {
-      const description = document.querySelector('#input').value;
-      const completed = false;
-      const index = listToDo.list.length + 1;
-      const newTask = { description, completed, index };
-      if (description) {
-        document.querySelector('#input').value = '';
-        listToDo.addTodo(newTask);
-        renderList(listToDo);
-      }
-    };
-  }
-};
-enterKey.click();
+refresh.onclick = () => {
+  listToDo = new ToDo();
+  renderList(listToDo);
+}

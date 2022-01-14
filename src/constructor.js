@@ -19,13 +19,13 @@ class ToDo {
   }
 
   editToDo(todoId, todoDescription) {
-    const newTask = this.list.map((todo) => {
+    this.list = this.list.map((todo) => {
       if (todo.index === todoId) {
-        return { ...todo, description: todoDescription };
-      }
+        todo.description = todoDescription
+    }
       return todo;
     });
-    localStorage.setItem('toDoTask', JSON.stringify(newTask));
+    localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 }
 
