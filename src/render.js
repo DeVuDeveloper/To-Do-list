@@ -3,29 +3,24 @@ const renderList = (listToDo) => {
   const tasksToDo = document.querySelector('.tasks');
 
   tasksToDo.innerHTML = '';
+
   sortedTodo.forEach((todo) => {
+    const checkedTodo = todo.completed ? 'checked' : '';
+    const checkClass = todo.completed ? 'checked' : '';
     const taskContainer = document.createElement('ul');
     const taskEl = document.createElement('li');
     const spanEl = document.createElement('span');
-    // const square = document.createElement('i');
     const removeIcon = document.createElement('i');
     const remove = document.createElement('button');
-    const textToDo = document.createElement('input');
-    const checkbox = document.createElement('input');
 
     tasksToDo.appendChild(taskContainer);
     taskContainer.classList.add('second');
     taskContainer.appendChild(taskEl);
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
-    spanEl.appendChild(checkbox);
-    checkbox.classList.add('right', 'checkbox');
-    checkbox.setAttribute('type', 'checkbox');
-    spanEl.appendChild(textToDo);
-    textToDo.classList.add('edit-text');
-    textToDo.setAttribute('id', todo.index);
-    textToDo.value = todo.description;
-    textToDo.readOnly = true;
+    spanEl.innerHTML = `<input id="${todo.index}" class="check" type="checkbox" ${checkedTodo}/>
+                         <input id="${todo.index}" class="edit-text ${checkClass}" type="text" value=" ${todo.description}" readOnly />`;
+
     taskEl.appendChild(remove);
     remove.classList.add('left', 'grey');
     remove.appendChild(removeIcon);
@@ -33,11 +28,6 @@ const renderList = (listToDo) => {
     remove.style.border = 'none';
     removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
   });
-
-  const clear = document.createElement('p');
-  tasksToDo.appendChild(clear);
-  clear.classList.add('grey');
-  clear.innerText = 'Clear all completed';
 
   const todoInput = document.querySelectorAll('.edit-text');
   todoInput.forEach((todoInp) => {
@@ -76,6 +66,15 @@ const renderList = (listToDo) => {
     todoInp.addEventListener('input', () => {
       const id = Number(todoInp.id);
       listToDo.editToDo(id, todoInp.value);
+    });
+  });
+
+  const checkCompleted = document.querySelectorAll('.todo-check');
+  checkCompleted.forEach((todo) => {
+    todo.addEventListener('change', (e) => {
+      const { id } = e.target;
+      listToDo.completeTodo(id, e.target.checked);
+      e.target.parentNode.lastElementChild.classList.toggle('checked');
     });
   });
 };

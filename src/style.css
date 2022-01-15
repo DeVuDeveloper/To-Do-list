@@ -76,6 +76,11 @@ form input {
   height: 2vh;
 }
 
+.tasks {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .second {
   display: flex;
   flex-direction: column;
@@ -107,12 +112,11 @@ form input {
   cursor: pointer;
 }
 
-p {
-  font-size: 20px;
-  margin: 0;
-  text-align: center;
+.clear-all {
+  font-size: 23px;
   cursor: pointer;
-  padding: 1vh;
+  margin: auto;
+  padding: 1vh 0;
 }
 
 .second input {
@@ -121,11 +125,11 @@ p {
 }
 
 .checkbox {
-  position: relative;
   cursor: pointer;
   margin-right: 20px;
 }
 
+/*
 .checkbox::before {
   content: "";
   display: block;
@@ -161,7 +165,7 @@ p {
   position: absolute;
   top: 2px;
   left: 6px;
-}
+} */
 
 .edit-text {
   border: none;

@@ -21,10 +21,16 @@ addBtn.onclick = () => {
 
   if (description) {
     document.querySelector('#input').value = '';
-    listToDo.addTodo(newTask);
+    listToDo.addToDo(newTask);
     renderList(listToDo);
   }
 };
+
+const clearBtn = document.querySelector('.clear-all');
+clearBtn.addEventListener('click', () => {
+  listToDo.clearCompleted();
+  renderList(listToDo);
+});
 
 refresh.onclick = () => {
   listToDo = new ToDo();
