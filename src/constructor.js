@@ -1,19 +1,65 @@
-import completeHelper from './clear.js';
+// import completeHelper from './clear.js';
 
-class ToDo {
+// class ToDo {
+//   constructor() {
+//     this.list = localStorage.getItem('toDoTask')
+//       ? JSON.parse(localStorage.getItem('toDoTask'))
+//       : [];
+//   }
+
+//   addTodo(todo) {
+//     this.list.push(todo);
+//     localStorage.setItem('toDoTask', JSON.stringify(this.list));
+//   }
+
+//   removeToDo(ID) {
+//     this.list = this.list.filter((todo) => todo.index !== ID);
+//     this.list.forEach((todo, index) => {
+//       todo.index = index + 1;
+//     });
+//     localStorage.setItem('toDoTask', JSON.stringify(this.list));
+//   }
+
+//   editToDo(todoId, todoDescription) {
+//     this.list = this.list.map((todo) => {
+//       if (todo.index === todoId) {
+//         todo.description = todoDescription;
+//       }
+//       return todo;
+//     });
+//     localStorage.setItem('toDoTask', JSON.stringify(this.list));
+//   }
+
+//   completeToDo(todoIndex, status) {
+//     completeHelper(this.list, todoIndex, status);
+//   }
+
+//   clearCompleted() {
+//     this.list = this.list.filter((todo) => !todo.completed);
+//     this.list.forEach((todo, index) => {
+//       todo.index = index + 1;
+//     });
+//     localStorage.setItem('toDoTask', JSON.stringify(this.list));
+//   }
+// }
+
+// export default ToDo;
+import completeHelper from './clear';
+
+export default class ToDo {
   constructor() {
     this.list = localStorage.getItem('toDoTask')
       ? JSON.parse(localStorage.getItem('toDoTask'))
       : [];
   }
 
-  addTodo(todo) {
+  addToDo(todo) {
     this.list.push(todo);
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  removeToDo(ID) {
-    this.list = this.list.filter((todo) => todo.index !== ID);
+  removeToDo(todoID) {
+    this.list = this.list.filter((todo) => todo.index !== todoID);
     this.list.forEach((todo, index) => {
       todo.index = index + 1;
     });
@@ -30,11 +76,11 @@ class ToDo {
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  completeTodo(todoId, status) {
+  completeToDo(todoId, status) {
     completeHelper(this.list, todoId, status);
   }
 
-  clearCompletedTodo() {
+  clearCompleted() {
     this.list = this.list.filter((todo) => !todo.completed);
     this.list.forEach((todo, index) => {
       todo.index = index + 1;
@@ -42,5 +88,3 @@ class ToDo {
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 }
-
-export default ToDo;
