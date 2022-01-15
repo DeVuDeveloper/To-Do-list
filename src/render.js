@@ -19,7 +19,7 @@ const renderList = (listToDo) => {
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
     spanEl.innerHTML = `<input id="${todo.index}" class="check" type="checkbox" ${checkedTodo}/>
-                         <input id="${todo.index}" class="edit-text ${checkClass }" type="text" value="${todo.description}" readOnly/>`
+                         <input id="${todo.index}" class="edit-text ${ checkClass }" type="text" value=" ${ todo.description }" readOnly />`;
 
     taskEl.appendChild(remove);
     remove.classList.add('left', 'grey');
@@ -35,43 +35,43 @@ const renderList = (listToDo) => {
       todoInp.readOnly = false;
       todoInp.focus();
 
-    todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#d3d3d3';
+      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#d3d3d3';
 
-    todoInp.parentNode.parentNode.querySelector('button').remove();
-      const btn = document.createElement('button');
-      todoInp.parentNode.parentNode.appendChild(btn);
+      todoInp.parentNode.parentNode.querySelector('button').remove();
+        const btn = document.createElement('button');
+        todoInp.parentNode.parentNode.appendChild(btn);
       const trashIcon = document.createElement('i');
       trashIcon.classList.add('iconT', 'grey', 'fas', 'fa-trash', 'fa-2x');
       btn.appendChild(trashIcon);
       btn.style.border = 'none';
       btn.onclick = () => {
       listToDo.removeToDo(Number(todoInp.id));
-     renderList(listToDo);
+        renderList(listToDo);
+      };
     };
-  };
 
-  todoInp.addEventListener('focusout', () => {
-  todoInp.readOnly = true;
-  todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#fff';
-  setTimeout(() => {
-  todoInp.parentNode.parentNode.querySelector('button').remove();
-  const btn = document.createElement('button');
-  const dotIcon = document.createElement('i');
-  dotIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
-  btn.appendChild(dotIcon);
-  todoInp.parentNode.parentNode.appendChild(btn);
-  }, 200);
-});
+    todoInp.addEventListener('focusout', () => {
+     todoInp.readOnly = true;
+     todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#fff';
+      setTimeout(() => {
+        todoInp.parentNode.parentNode.querySelector('button').remove();
+        const btn = document.createElement('button');
+        const dotIcon = document.createElement('i');
+        dotIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
+        btn.appendChild(dotIcon);
+        todoInp.parentNode.parentNode.appendChild(btn);
+     }, 200);
+    });
 
-  todoInp.addEventListener('input', () => {
-  const id = Number(todoInp.id);
-  listToDo.editToDo(id, todoInp.value);
- });
-});
+    todoInp.addEventListener('input', () => {
+      const id = Number(todoInp.id);
+      listToDo.editToDo(id, todoInp.value);
+    });
+   });
 
   const checkCompleted = document.querySelectorAll('.todo-check');
-    checkCompleted.forEach((todo) => {
-      todo.addEventListener('change', (e) => {
+  checkCompleted.forEach((todo) => {
+    todo.addEventListener('change', (e) => {
       const { id } = e.target;
       listToDo.completeTodo(id, e.target.checked);
       e.target.parentNode.lastElementChild.classList.toggle('checked');
