@@ -125,11 +125,11 @@ form input {
 }
 
 .checkbox {
- 
-  cursor: pointer;
-  margin-right: 20px;
+ cursor: pointer;
+ margin-right: 20px;
 }
-/* 
+
+/*
 .checkbox::before {
   content: "";
   display: block;
