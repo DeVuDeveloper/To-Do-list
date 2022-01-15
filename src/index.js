@@ -19,10 +19,10 @@ addBtn.onclick = () => {
   const index = listToDo.list.length + 1;
   const newTask = { description, completed, index };
 
-if (description) {
-  document.querySelector('#input').value = '';
-  listToDo.addToDo(newTask);
-  renderList(listToDo);
+  if (description) {
+    document.querySelector('#input').value = '';
+    listToDo.addToDo(newTask);
+    renderList(listToDo);
   }
 };
 
