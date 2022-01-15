@@ -47,17 +47,33 @@
   margin: 0 10px;
 }
 
-.first input {
-  font-style: italic;
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
+form button {
+  margin-right: 22px;
   border: none;
-  width: 80%;
-  height: 3vh;
+  background: transparent;
+  pointer-events: none;
 }
 
 .first button {
   border: none;
-  margin-right: 10px;
-  cursor: pointer;
+  background: transparent;
+}
+
+form input {
+  font-style: italic;
+  width: 70%;
+  height: 4vh;
+  border: none;
+  padding: 0 10px;
+}
+
+.iconR {
+  height: 2vh;
 }
 
 .second {
@@ -97,4 +113,59 @@ p {
   text-align: center;
   cursor: pointer;
   padding: 1vh;
+}
+
+.second input {
+  font-size: 20px;
+  color: rgb(92, 87, 87);
+}
+
+.checkbox {
+  position: relative;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.checkbox::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #e6dddd;
+}
+
+.checkbox:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: green;
+}
+
+.checkbox:checked::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+
+.edit-text {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
 }

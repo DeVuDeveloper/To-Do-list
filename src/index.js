@@ -4,53 +4,29 @@ import '@fortawesome/fontawesome-free/js/solid.js';
 import '@fortawesome/fontawesome-free/js/regular.js';
 import '@fortawesome/fontawesome-free/js/brands.js';
 
-const listToDo = [
-  {
-    description: 'do2',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'do1',
-    completed: false,
-    index: 1,
-  },
-];
+import ToDo from './constructor.js';
+import renderList from './render.js';
 
-const tasksToDo = document.querySelector('.tasks');
+let listToDo = new ToDo();
+renderList(listToDo);
 
-const renderList = () => {
-  const sortedTodo = listToDo.sort((a, b) => a.index - b.index);
+const addBtn = document.querySelector('.add');
+const refresh = document.querySelector('.refresh');
 
-  tasksToDo.innerHTML = '';
-  sortedTodo.forEach((todo) => {
-    const taskContainer = document.createElement('ul');
-    const taskEl = document.createElement('li');
-    const spanEl = document.createElement('span');
-    const square = document.createElement('i');
-    const refresh = document.createElement('i');
-    const paragraph = document.createElement('p');
+addBtn.onclick = () => {
+  const description = document.querySelector('#input').value;
+  const completed = false;
+  const index = listToDo.list.length + 1;
+  const newTask = { description, completed, index };
 
-    tasksToDo.appendChild(taskContainer);
-
-    taskContainer.classList.add('second');
-    taskContainer.appendChild(taskEl);
-
-    taskEl.appendChild(spanEl);
-    spanEl.classList.add('grey');
-
-    spanEl.appendChild(square);
-    square.classList.add('right', 'grey', 'far', 'fa-square');
-    spanEl.appendChild(paragraph);
-    paragraph.innerText = `${todo.description}`;
-
-    taskEl.appendChild(refresh);
-    refresh.classList.add('left', 'grey', 'fas', 'fa-ellipsis-v');
-  });
-  const description = document.createElement('p');
-  tasksToDo.appendChild(description);
-  description.classList.add('grey');
-  description.innerText = 'Clear all completed';
+  if (description) {
+    document.querySelector('#input').value = '';
+    listToDo.addTodo(newTask);
+    renderList(listToDo);
+  }
 };
 
-renderList();
+refresh.onclick = () => {
+  listToDo = new ToDo();
+  renderList(listToDo);
+};
