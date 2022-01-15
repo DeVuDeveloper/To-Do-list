@@ -7,7 +7,6 @@ const renderList = (listToDo) => {
     const taskContainer = document.createElement('ul');
     const taskEl = document.createElement('li');
     const spanEl = document.createElement('span');
-    // const square = document.createElement('i');
     const removeIcon = document.createElement('i');
     const remove = document.createElement('button');
     const textToDo = document.createElement('input');
@@ -21,6 +20,9 @@ const renderList = (listToDo) => {
     spanEl.appendChild(checkbox);
     checkbox.classList.add('right', 'checkbox');
     checkbox.setAttribute('type', 'checkbox');
+    checkbox.setAttribute('id', todo.index);
+    checkbox.checked = true;
+
     spanEl.appendChild(textToDo);
     textToDo.classList.add('edit-text');
     textToDo.setAttribute('id', todo.index);
@@ -34,9 +36,11 @@ const renderList = (listToDo) => {
     removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
   });
 
-  const clear = document.createElement('p');
+  // <input id="${todo.id}" class="todo-check" type="checkbox" ${checkedTodo} />
+
+  const clear = document.createElement('a');
   tasksToDo.appendChild(clear);
-  clear.classList.add('grey');
+  clear.classList.add('grey', 'clear-all');
   clear.innerText = 'Clear all completed';
 
   const todoInput = document.querySelectorAll('.edit-text');
@@ -79,5 +83,14 @@ const renderList = (listToDo) => {
     });
   });
 };
+
+const toDoCheck = document.querySelectorAll('.checkbox');
+toDoCheck.forEach((todo) => {
+    todo.addEventListener('change', (e) => {
+      const { id } = e.target;
+     listToDo.completeTodo(id, e.target.checked);
+      e.target.parentNode.lastElementChild.classList.toggle('checked');
+    });
+  });
 
 export default renderList;

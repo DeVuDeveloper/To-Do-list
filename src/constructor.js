@@ -1,3 +1,5 @@
+import completeHelper from './clear.js';
+
 class ToDo {
   constructor() {
     this.list = localStorage.getItem('toDoTask')
@@ -24,6 +26,18 @@ class ToDo {
         todo.description = todoDescription;
       }
       return todo;
+    });
+    localStorage.setItem('toDoTask', JSON.stringify(this.list));
+  }
+
+  completeTodo(todoId, status) {
+    completeHelper(this.list, todoId, status);
+  }
+
+  clearCompletedTodo() {
+    this.list = this.list.filter((todo) => !todo.completed);
+    this.list.forEach((todo, index) => {
+      todo.index = index + 1;
     });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }

@@ -30,3 +30,10 @@ refresh.onclick = () => {
   listToDo = new ToDo();
   renderList(listToDo);
 };
+
+const clearBtn = document.querySelector('.clear-all');
+clearBtn.addEventListener('click', () => {
+  alert('sssddd')
+ listToDo.clearCompletedTodo();
+  renderList(listToDo);
+});
