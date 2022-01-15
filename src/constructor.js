@@ -31,7 +31,7 @@ export default class ToDo {
   }
 
   completeToDo(todoId, status) {
-    completeHelper(this.list, todoId, status);
+    completedTasks(this.list, todoId, status);
   }
 
   clearCompleted() {
