@@ -1,4 +1,4 @@
-import completeHelper from './clear.js';
+import completedTasks from './clear.js';
 
 export default class ToDo {
   constructor() {
