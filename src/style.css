@@ -198,13 +198,13 @@ form input {
   width: 100%;
 }
 
-.tasks  ul:nth-child(odd) {
+.tasks ul:nth-child(odd) {
   background: #57648c;
   color: #fff;
   border: 2px solid #fff;
 }
 
-.tasks  ul:nth-child(even) {
+.tasks ul:nth-child(even) {
   background: #c2b4d6;
   color: #fff;
   border: 2px solid #fff;
