@@ -100,14 +100,14 @@ form input {
   grid-template-columns: 1fr;
 }
 
-.second {
+#sortlist{
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
 }
 
-.second li {
+#sortlist li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -116,7 +116,7 @@ form input {
   padding: 0 20px 0 10px;
 }
 
-.second span {
+#sortlist span {
   display: flex;
   align-items: center;
 }
@@ -212,6 +212,22 @@ form input {
   background: #c2b4d6;
   color: #fff;
   border: 2px solid #fff;
+}
+
+.slist:nth-child(odd).hint {
+  background: #fea;
+}
+
+.slist:nth-child(odd).active {
+  background: #581212;
+}
+
+.slist:nth-child(even).hint {
+   background: rgb(9, 36, 94);
+}
+
+.slist:nth-child(even).active {
+   background: #ffd4d4;
 }
 
 @media only screen and (min-width: 678px) {

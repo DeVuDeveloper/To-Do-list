@@ -14,7 +14,7 @@ const renderList = (listToDo) => {
     const remove = document.createElement('button');
 
     tasksToDo.appendChild(taskContainer);
-    taskContainer.classList.add('second');
+    taskContainer.setAttribute('id', 'sortlist');
     taskContainer.appendChild(taskEl);
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
