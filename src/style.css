@@ -124,13 +124,13 @@ form input {
   color: rgb(92, 87, 87);
 }
 
-.checkbox {
+.check {
+  position: relative;
   cursor: pointer;
   margin-right: 20px;
 }
 
-/*
-.checkbox::before {
+/* .check::before {
   content: "";
   display: block;
   position: absolute;
@@ -138,10 +138,10 @@ form input {
   height: 20px;
   top: 0;
   left: 0;
-  background-color: #e6dddd;
+  background-color: #918f8f;
 }
 
-.checkbox:checked::before {
+.check:checked::before {
   content: "";
   display: block;
   position: absolute;
@@ -152,7 +152,7 @@ form input {
   background-color: green;
 }
 
-.checkbox:checked::after {
+.check:checked::after {
   content: "";
   display: block;
   width: 5px;
@@ -166,6 +166,11 @@ form input {
   top: 2px;
   left: 6px;
 } */
+
+.clear-all {
+  font-size: 20px;
+  border: none;
+}
 
 .edit-text {
   border: none;

@@ -1,10 +1,10 @@
-const renderList = (listToDo) => {
+const renderList = listToDo => {
   const sortedTodo = listToDo.list.sort((a, b) => a.index - b.index);
   const tasksToDo = document.querySelector('.tasks');
 
   tasksToDo.innerHTML = '';
 
-  sortedTodo.forEach((todo) => {
+  sortedTodo.forEach(todo => {
     const checkedTodo = todo.completed ? 'checked' : '';
     const checkClass = todo.completed ? 'checked' : '';
     const taskContainer = document.createElement('ul');
@@ -18,19 +18,18 @@ const renderList = (listToDo) => {
     taskContainer.appendChild(taskEl);
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
-    spanEl.innerHTML = `<input id="${todo.index}" class="check" type="checkbox" ${checkedTodo}/>
-                         <input id="${todo.index}" class="edit-text ${checkClass}" type="text" value=" ${todo.description}" readOnly />`;
-
+    spanEl.innerHTML = `<input id="${todo.id}" class="right check" type="checkbox" ${checkedTodo} />
+                        <input id="${todo.index}" class="edit-text ${checkClass}" type="text" value="${todo.description}" />`;
     taskEl.appendChild(remove);
     remove.classList.add('left', 'grey');
     remove.appendChild(removeIcon);
     remove.setAttribute('id', todo.index);
     remove.style.border = 'none';
     removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
-  });
+  })
 
   const todoInput = document.querySelectorAll('.edit-text');
-  todoInput.forEach((todoInp) => {
+  todoInput.forEach(todoInp => {
     todoInp.onclick = () => {
       todoInp.readOnly = false;
       todoInp.focus();
@@ -47,7 +46,7 @@ const renderList = (listToDo) => {
       btn.onclick = () => {
         listToDo.removeToDo(Number(todoInp.id));
         renderList(listToDo);
-      };
+      }
     };
 
     todoInp.addEventListener('focusout', () => {
@@ -69,11 +68,11 @@ const renderList = (listToDo) => {
     });
   });
 
-  const checkCompleted = document.querySelectorAll('.todo-check');
-  checkCompleted.forEach((todo) => {
-    todo.addEventListener('change', (e) => {
+  const checkCompleted = document.querySelectorAll('.check');
+  checkCompleted.forEach(todo => {
+    todo.onclick = ('change', e => {
       const { id } = e.target;
-      listToDo.completeTodo(id, e.target.checked);
+      listToDo.completeToDo(id, e.target.checked);
       e.target.parentNode.lastElementChild.classList.toggle('checked');
     });
   });
