@@ -85,7 +85,7 @@ form button {
 
 form input {
   font-style: italic;
-  width: 100%;
+  width: 10%;
   height: 4vh;
   border: none;
   padding-left: 15px;
@@ -129,6 +129,10 @@ form input {
 .left {
   margin-right: 5px;
   cursor: pointer;
+}
+
+.refresh {
+  font-size: 20px;
 }
 
 .clear-all {
@@ -214,4 +218,12 @@ form input {
   .container {
     top: 20vh;
   }
+}
+
+.refresh:hover {
+  font-size: 22px;
+}
+
+.clear-all:hover {
+  color: rgb(240, 17, 17);
 }
