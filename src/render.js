@@ -19,13 +19,16 @@ const renderList = listToDo => {
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
     spanEl.innerHTML = `<input id="${todo.id}" class="right check" type="checkbox" ${checkedTodo} />
-                        <input id="${todo.index}" class="edit-text ${checkClass}" type="text" value="${todo.description}" />`;
+                        <input style="color: #fff" id="${todo.index}" class="edit-text ${checkClass}" type="text" value="${todo.description}" />`;
     taskEl.appendChild(remove);
     remove.classList.add('left', 'grey');
     remove.appendChild(removeIcon);
     remove.setAttribute('id', todo.index);
-    remove.style.border = 'none';
     removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
+    remove.style.border = 'none';
+    remove.style.backgroundColor = 'transparent';
+    remove.style.color = '#fff';
+
   })
 
   const todoInput = document.querySelectorAll('.edit-text');
@@ -34,7 +37,7 @@ const renderList = listToDo => {
       todoInp.readOnly = false;
       todoInp.focus();
 
-      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#d3d3d3';
+      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#ffb62e';
 
       todoInp.parentNode.parentNode.querySelector('button').remove();
       const btn = document.createElement('button');
@@ -43,6 +46,8 @@ const renderList = listToDo => {
       trashIcon.classList.add('iconT', 'grey', 'fas', 'fa-trash', 'fa-2x');
       btn.appendChild(trashIcon);
       btn.style.border = 'none';
+      
+
       btn.onclick = () => {
         listToDo.removeToDo(Number(todoInp.id));
         renderList(listToDo);
@@ -51,13 +56,17 @@ const renderList = listToDo => {
 
     todoInp.addEventListener('focusout', () => {
       todoInp.readOnly = true;
-      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#fff';
+      todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#57648c';
       setTimeout(() => {
         todoInp.parentNode.parentNode.querySelector('button').remove();
         const btn = document.createElement('button');
         const dotIcon = document.createElement('i');
         dotIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
         btn.appendChild(dotIcon);
+        btn.style.border = 'none';
+        btn.style.backgroundColor = 'transparent';
+        btn.style.color = '#fff';
+        btn.style.marginRight = "5px";
         todoInp.parentNode.parentNode.appendChild(btn);
       }, 200);
     });
