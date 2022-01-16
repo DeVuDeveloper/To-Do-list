@@ -1,10 +1,10 @@
-const renderList = listToDo => {
+const renderList = (listToDo) => {
   const sortedTodo = listToDo.list.sort((a, b) => a.index - b.index);
   const tasksToDo = document.querySelector('.tasks');
 
   tasksToDo.innerHTML = '';
 
-  sortedTodo.forEach(todo => {
+  sortedTodo.forEach((todo) => {
     const checkedTodo = todo.completed ? 'checked' : '';
     const checkClass = todo.completed ? 'checked' : '';
     const taskContainer = document.createElement('ul');
@@ -28,11 +28,10 @@ const renderList = listToDo => {
     remove.style.border = 'none';
     remove.style.backgroundColor = 'transparent';
     remove.style.color = '#fff';
-
-  })
+  });
 
   const todoInput = document.querySelectorAll('.edit-text');
-  todoInput.forEach(todoInp => {
+  todoInput.forEach((todoInp) => {
     todoInp.onclick = () => {
       todoInp.readOnly = false;
       todoInp.focus();
@@ -46,12 +45,11 @@ const renderList = listToDo => {
       trashIcon.classList.add('iconT', 'grey', 'fas', 'fa-trash', 'fa-2x');
       btn.appendChild(trashIcon);
       btn.style.border = 'none';
-      
 
       btn.onclick = () => {
         listToDo.removeToDo(Number(todoInp.id));
         renderList(listToDo);
-      }
+      };
     };
 
     todoInp.addEventListener('focusout', () => {
@@ -66,7 +64,7 @@ const renderList = listToDo => {
         btn.style.border = 'none';
         btn.style.backgroundColor = 'transparent';
         btn.style.color = '#fff';
-        btn.style.marginRight = "5px";
+        btn.style.marginRight = '5px';
         todoInp.parentNode.parentNode.appendChild(btn);
       }, 200);
     });
@@ -78,8 +76,8 @@ const renderList = listToDo => {
   });
 
   const checkCompleted = document.querySelectorAll('.check');
-  checkCompleted.forEach(todo => {
-    todo.onclick = ('change', e => {
+  checkCompleted.forEach((todo) => {
+    todo.onclick = ('change', (e) => {
       const { id } = e.target;
       listToDo.completeToDo(id, e.target.checked);
       e.target.parentNode.lastElementChild.classList.toggle('checked');

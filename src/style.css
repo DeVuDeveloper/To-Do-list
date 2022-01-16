@@ -28,7 +28,7 @@ body {
   box-shadow: -5px 5px 5px rgb(216, 212, 212), 5px 5px 5px #cac4c4;
   width: 90%;
   position: relative;
-  top:35vh;
+  top: 35vh;
   margin: auto;
 }
 
@@ -133,10 +133,14 @@ form input {
 
 .clear-all {
   font-size: 23px;
+  border: none;
   cursor: pointer;
   margin: auto;
   padding: 1vh 0;
   margin-top: 35px;
+  background: #934a5f;
+  color: #fff;
+  width: 100%;
 }
 
 .second input {
@@ -187,21 +191,12 @@ form input {
   left: 6px;
 }
 
-.clear-all {
-  font-size: 20px;
-  border: none;
-  background: #934a5f;
-  color: #fff;
-  width: 100%;
-}
-
 .edit-text {
   border: none;
   outline: none;
   background-color: transparent;
   width: 100%;
 }
-
 
 .tasks  ul:nth-child(odd) {
   background: #57648c;
