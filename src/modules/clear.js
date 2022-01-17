@@ -1,7 +1,7 @@
 const completedTasks = (list, todoId, status) => {
-  const Update = list;
+  const update = list;
   const selected = list.findIndex((element) => element.id === todoId);
-  Update[selected].completed = status;
-  localStorage.setItem('toDoTask', JSON.stringify(Update));
+  update[selected].completed = status;
+  localStorage.setItem('toDoTask', JSON.stringify(update));
 };
 export default completedTasks;

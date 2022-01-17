@@ -5,25 +5,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do list</title>
-  </head>
+ </head>
 
 <body>
   <section class="main container">
     <ul class="first">
       <li>
         <span class="left">Today's To Do</span>
-        <button class="right refresh" ><i class="grey fas fa-sync-alt"></i></button>
+        <button class="right refresh" ><i class="white fas fa-sync-alt"></i></button>
       </li>
     </ul>
     <form onSubmit="return false">
       <input id="input" type="text" placeholder="Add to your list...">
       <button class="add" type="submit">
-            <i class=" far fa-share-square fa-rotate-180"></i>
+            <i class="far fa-share-square fa-rotate-180"></i>
           </button>
     </form>
-    <div class="tasks"></div>
+    <div id='drag' class="tasks"></div>
     <button class='grey clear-all'>Clear all Completed</button>
   </section>
+
 </body>
 
 </html>

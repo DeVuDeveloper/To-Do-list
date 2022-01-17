@@ -4,8 +4,20 @@
   list-style: none;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(./bck.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .grey {
   color: rgb(92, 87, 87);
+}
+
+.white {
+  color: #fff;
 }
 
 .container {
@@ -14,14 +26,20 @@
   justify-content: start;
   border: 1px solid rgb(233, 224, 219);
   box-shadow: -5px 5px 5px rgb(216, 212, 212), 5px 5px 5px #cac4c4;
-  width: 50%;
-  padding: 0;
-  margin: 32vh auto;
+  width: 90%;
+  position: relative;
+  top: 35vh;
+  margin: auto;
+}
+
+.container h1 {
+  text-align: center;
 }
 
 .first {
   margin: 0;
   padding: 0;
+  background: #934a5f;
 }
 
 .first li {
@@ -37,6 +55,7 @@
   display: flex;
   font-size: 20px;
   font-weight: bolder;
+  color: #fff;
 }
 
 .second i {
@@ -66,10 +85,10 @@ form button {
 
 form input {
   font-style: italic;
-  width: 70%;
+  width: 50%;
   height: 4vh;
   border: none;
-  padding: 0 10px;
+  padding-left: 15px;
 }
 
 .iconR {
@@ -81,14 +100,14 @@ form input {
   grid-template-columns: 1fr;
 }
 
-.second {
+#sortlist {
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
 }
 
-.second li {
+#sortlist li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,7 +116,7 @@ form input {
   padding: 0 20px 0 10px;
 }
 
-.second span {
+#sortlist span {
   display: flex;
   align-items: center;
 }
@@ -112,11 +131,20 @@ form input {
   cursor: pointer;
 }
 
+.refresh {
+  font-size: 20px;
+}
+
 .clear-all {
   font-size: 23px;
+  border: none;
   cursor: pointer;
   margin: auto;
   padding: 1vh 0;
+  margin-top: 35px;
+  background: #934a5f;
+  color: #fff;
+  width: 100%;
 }
 
 .second input {
@@ -124,13 +152,13 @@ form input {
   color: rgb(92, 87, 87);
 }
 
-.checkbox {
+.check {
+  position: relative;
   cursor: pointer;
   margin-right: 20px;
 }
 
-/*
-.checkbox::before {
+.check::before {
   content: "";
   display: block;
   position: absolute;
@@ -138,10 +166,10 @@ form input {
   height: 20px;
   top: 0;
   left: 0;
-  background-color: #e6dddd;
+  background-color: #eee4e4;
 }
 
-.checkbox:checked::before {
+.check:checked::before {
   content: "";
   display: block;
   position: absolute;
@@ -152,7 +180,7 @@ form input {
   background-color: green;
 }
 
-.checkbox:checked::after {
+.check:checked::after {
   content: "";
   display: block;
   width: 5px;
@@ -165,11 +193,46 @@ form input {
   position: absolute;
   top: 2px;
   left: 6px;
-} */
+}
 
 .edit-text {
   border: none;
   outline: none;
   background-color: transparent;
   width: 100%;
+}
+
+.tasks ul:nth-child(odd) {
+  background: #57648c;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.tasks ul:nth-child(even) {
+  background: #c2b4d6;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+@media only screen and (min-width: 678px) {
+  .container {
+    top: 20vh;
+  }
+}
+
+.refresh:hover {
+  font-size: 22px;
+}
+
+.clear-all:hover {
+  color: rgb(240, 17, 17);
+}
+
+.dragging:hover {
+  color: rgb(240, 17, 17);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
