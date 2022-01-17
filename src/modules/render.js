@@ -1,4 +1,4 @@
- const renderList = (listToDo) => {
+const renderList = (listToDo) => {
   const sortedTodo = listToDo.list.sort((a, b) => a.index - b.index);
   const tasksToDo = document.querySelector('#drag');
 
@@ -6,7 +6,7 @@
 
   sortedTodo.forEach((todo) => {
     const taskContainer = document.createElement('ul');
-    let taskEl = document.createElement('li');
+    const taskEl = document.createElement('li');
     const spanEl = document.createElement('span');
     const removeIcon = document.createElement('i');
     const remove = document.createElement('button');
@@ -18,8 +18,8 @@
     taskContainer.appendChild(taskEl);
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
-    
-spanEl.appendChild(checkbox);
+
+    spanEl.appendChild(checkbox);
     checkbox.setAttribute('id', todo.id);
     checkbox.setAttribute('type', 'checkbox');
     checkbox.classList.add('right', 'check');

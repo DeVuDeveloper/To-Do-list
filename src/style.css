@@ -100,7 +100,7 @@ form input {
   grid-template-columns: 1fr;
 }
 
-#sortlist{
+#sortlist {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -214,9 +214,6 @@ form input {
   border: 2px solid #fff;
 }
 
-
-
-
 @media only screen and (min-width: 678px) {
   .container {
     top: 20vh;
@@ -232,7 +229,7 @@ form input {
 }
 
 .dragging:hover {
-  color:rgb(240, 17, 17);
+  color: rgb(240, 17, 17);
 }
 
 .completed {
