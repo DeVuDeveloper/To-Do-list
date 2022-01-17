@@ -5,21 +5,30 @@
   tasksToDo.innerHTML = '';
 
   sortedTodo.forEach((todo) => {
-    const checkedTodo = todo.completed ? 'checked' : '';
-    const checkClass = todo.completed ? 'checked' : '';
     const taskContainer = document.createElement('ul');
-    const taskEl = document.createElement('li');
+    let taskEl = document.createElement('li');
     const spanEl = document.createElement('span');
     const removeIcon = document.createElement('i');
     const remove = document.createElement('button');
+    const textInput = document.createElement('input');
+    const checkbox = document.createElement('input');
 
     tasksToDo.appendChild(taskContainer);
     taskContainer.setAttribute('id', 'sortlist');
     taskContainer.appendChild(taskEl);
     taskEl.appendChild(spanEl);
     spanEl.classList.add('grey');
-    spanEl.innerHTML = `<input id="${todo.id}" class="right check" type="checkbox" ${checkedTodo} />
-                        <input style="color: #fff" id="${todo.index}" class="edit-text ${checkClass}" type="text" value="${todo.description}" />`;
+    
+spanEl.appendChild(checkbox);
+    checkbox.setAttribute('id', todo.id);
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.classList.add('right', 'check');
+    spanEl.appendChild(textInput);
+    textInput.setAttribute('id', todo.index);
+    textInput.setAttribute('type', 'text');
+    textInput.classList.add('edit-text');
+    textInput.value = todo.description;
+    textInput.style.color = 'white';
     taskEl.appendChild(remove);
     remove.classList.add('left', 'grey');
     remove.appendChild(removeIcon);
@@ -37,7 +46,6 @@
       todoInp.focus();
 
       todoInp.parentNode.parentNode.parentNode.style.backgroundColor = '#ffb62e';
-
       todoInp.parentNode.parentNode.querySelector('button').remove();
       const btn = document.createElement('button');
       todoInp.parentNode.parentNode.appendChild(btn);
@@ -80,7 +88,7 @@
     todo.onclick = ('change', (e) => {
       const { id } = e.target;
       listToDo.completeToDo(id, e.target.checked);
-      e.target.parentNode.lastElementChild.classList.toggle('checked');
+      e.target.parentNode.lastElementChild.classList.add('completed');
     });
   });
 };

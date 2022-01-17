@@ -4,8 +4,8 @@ import '@fortawesome/fontawesome-free/js/solid.js';
 import '@fortawesome/fontawesome-free/js/regular.js';
 import '@fortawesome/fontawesome-free/js/brands.js';
 
-import renderList from './render.js';
-import ToDo from './constructor.js';
+import renderList from './modules/render.js';
+import ToDo from './modules/constructor.js';
 import Sortable from 'sortablejs';
 
 let listToDo = new ToDo();

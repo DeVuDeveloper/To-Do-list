@@ -85,7 +85,7 @@ form button {
 
 form input {
   font-style: italic;
-  width: 10%;
+  width: 50%;
   height: 4vh;
   border: none;
   padding-left: 15px;
@@ -214,21 +214,8 @@ form input {
   border: 2px solid #fff;
 }
 
-.slist:nth-child(odd).hint {
-  background: #fea;
-}
 
-.slist:nth-child(odd).active {
-  background: #581212;
-}
 
-.slist:nth-child(even).hint {
-   background: rgb(9, 36, 94);
-}
-
-.slist:nth-child(even).active {
-   background: #ffd4d4;
-}
 
 @media only screen and (min-width: 678px) {
   .container {
@@ -246,4 +233,9 @@ form input {
 
 .dragging:hover {
   color:rgb(240, 17, 17);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
