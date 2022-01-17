@@ -243,3 +243,7 @@ form input {
 .clear-all:hover {
   color: rgb(240, 17, 17);
 }
+
+.dragging:hover {
+  color:rgb(240, 17, 17);
+}

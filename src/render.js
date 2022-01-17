@@ -1,6 +1,6 @@
-const renderList = (listToDo) => {
+ const renderList = (listToDo) => {
   const sortedTodo = listToDo.list.sort((a, b) => a.index - b.index);
-  const tasksToDo = document.querySelector('.tasks');
+  const tasksToDo = document.querySelector('#drag');
 
   tasksToDo.innerHTML = '';
 
@@ -24,7 +24,7 @@ const renderList = (listToDo) => {
     remove.classList.add('left', 'grey');
     remove.appendChild(removeIcon);
     remove.setAttribute('id', todo.index);
-    removeIcon.classList.add('iconR', 'fas', 'fa-ellipsis-v', 'fa-2x');
+    removeIcon.classList.add('iconR', 'dragging', 'fas', 'fa-ellipsis-v', 'fa-2x');
     remove.style.border = 'none';
     remove.style.backgroundColor = 'transparent';
     remove.style.color = '#fff';
