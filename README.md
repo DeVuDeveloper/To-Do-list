@@ -1,6 +1,6 @@
 # To Do list
 
-Live preview [here](https://vudej.github.io/To-Do-list/). 
+Live preview [here](https://vudej.github.io/To-Do-list/dist/). 
 
 ## Screenshots
 ![Example screenshot](img/screenshot.PNG)
