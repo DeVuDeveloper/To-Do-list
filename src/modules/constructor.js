@@ -1,6 +1,6 @@
 import completedTasks from './clear.js';
 
-export default class ToDo {
+class ToDo {
   constructor() {
     this.list = localStorage.getItem('toDoTask')
       ? JSON.parse(localStorage.getItem('toDoTask'))
@@ -42,3 +42,5 @@ export default class ToDo {
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 }
+
+export default ToDo;
