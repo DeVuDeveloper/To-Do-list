@@ -14,12 +14,16 @@ class ToDo {
 
   removeToDo(todoID) {
     this.list = this.list.filter((todo) => todo.index !== todoID);
-    localStorage.setItem('toDoTask', JSON.stringify(this.list));
+    
+   localStorage.setItem('toDoTask', JSON.stringify(this.list));
+   console.log('this.list:', this.list)
   }
+  
+  
 
   editToDo(todoId, todoDescription) {
     this.list = this.list.map((todo) => {
-      if (todo.index === todoId) {
+      if (todo.id === todoId) {
         todo.description = todoDescription;
       }
       return todo;
@@ -33,9 +37,6 @@ class ToDo {
 
   clearCompleted() {
     this.list = this.list.filter((todo) => !todo.completed);
-    this.list.forEach((todo, index) => {
-      todo.index = index + 1;
-    });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 }

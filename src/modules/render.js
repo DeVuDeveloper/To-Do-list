@@ -32,7 +32,7 @@ const renderList = (listToDo) => {
     taskEl.appendChild(remove);
     remove.classList.add('left', 'grey');
     remove.appendChild(removeIcon);
-    remove.setAttribute('id', todo.id);
+    remove.setAttribute('id', todo.index);
     removeIcon.classList.add('iconR', 'dragging', 'fas', 'fa-ellipsis-v', 'fa-2x');
     remove.style.border = 'none';
     remove.style.backgroundColor = 'transparent';
