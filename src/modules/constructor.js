@@ -8,7 +8,6 @@ class ToDo {
   addToDo = (description) => {
     const index = this.list.length + 1;
     const completed = false;
-    
     this.list.push({
       description, completed, index,
     });
@@ -33,9 +32,9 @@ class ToDo {
   completedToDo = (index) => {
     const toDo = this.list.find((todo) => Number(index) === todo.index);
       if (toDo.completed === true) {
-        toDo.completed = false;
+      toDo.completed = false;
     } else {
-        toDo.completed = true;
+      toDo.completed = true;
     }
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   };
