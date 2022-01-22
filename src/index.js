@@ -15,6 +15,7 @@ const addBtn = document.querySelector('.add');
 const refresh = document.querySelector('.refresh');
 const tasksToDo = document.querySelector('#drag');
 const dragArea = tasksToDo;
+const drag = document.querySelector('.dragging');
 
 addBtn.onclick = () => {
   const description = document.querySelector('#input').value;
@@ -28,7 +29,7 @@ clearBtn.onclick = () => {
   listToDo.clearCompleted();
   renderList(listToDo);
 };
-  
+
 new Sortable(dragArea, {
   handle: '.dragging', animation: 150,
 });
