@@ -1,9 +1,8 @@
 class LocalStorage {
-    
   constructor() {
     this.store = {};
   }
-
+  
   getItem(key) {
     return this.store[key] || null;
   }

@@ -3,5 +3,5 @@ const Dom = test('use jsdom in this test file', () => {
   expect(testDom).not.toBeNull();
 });
 
-export default Dom;
+
 

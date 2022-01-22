@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642846146937" clover="3.2.0">
-  <project timestamp="1642846146937" name="All files">
+<coverage generated="1642846909867" clover="3.2.0">
+  <project timestamp="1642846909867" name="All files">
     <metrics statements="33" coveredstatements="21" conditionals="6" coveredconditionals="3" methods="18" coveredmethods="10" elements="57" coveredelements="34" complexity="0" loc="33" ncloc="33" packages="1" files="3" classes="3"/>
     <file name="constructor.js" path="C:\Users\pc\Desktop\To-Do-list\src\modules\constructor.js">
       <metrics statements="25" coveredstatements="17" conditionals="4" coveredconditionals="3" methods="12" coveredmethods="8"/>
