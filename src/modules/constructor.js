@@ -1,5 +1,3 @@
-import completedTasks from './clear.js';
-
 class ToDo {
   constructor() {
     this.list = localStorage.getItem('toDoTask')
@@ -7,23 +5,30 @@ class ToDo {
       : [];
   }
 
-  addToDo(todo) {
-    this.list.push(todo);
-    localStorage.setItem('toDoTask', JSON.stringify(this.list));
-  }
+  addToDo = (description) => {
+  const id = `id${Math.random().toString(16).slice(2)}`;
+  const index = this.list.length + 1;
+  const completed = false;
+  this.list.push({ description, completed, index, id });
+  localStorage.setItem('toDoTask', JSON.stringify(this.list));
+};
 
-  removeToDo(todoID) {
-    this.list = this.list.filter((todo) => todo.index !== todoID);
-    
-   localStorage.setItem('toDoTask', JSON.stringify(this.list));
-   console.log('this.list:', this.list)
-  }
-  
-  
+  adjustIndex() {
+  let i = 0;
+  this.list.forEach((todo) => {
+    i += 1;
+    todo.index = i;
+    });
+  };
+
+  removeToDo = (index) => {
+    this.list = this.list.filter((todo) =>  Number(index) !== todo.index);
+    localStorage.setItem('toDoTask', JSON.stringify(this.list));
+  };
 
   editToDo(todoId, todoDescription) {
     this.list = this.list.map((todo) => {
-      if (todo.id === todoId) {
+      if (todo.index === todoId) {
         todo.description = todoDescription;
       }
       return todo;
@@ -31,12 +36,15 @@ class ToDo {
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  completeToDo(todoId, status) {
-    completedTasks(this.list, todoId, status);
-  }
+  completeToDo = (todoId, status) => {
+    const selected = this.list.findIndex((element) => element.id === todoId);
+    this.list[selected].completed = status;
+    localStorage.setItem('toDoTask', JSON.stringify(this.list));
+  };
 
   clearCompleted() {
     this.list = this.list.filter((todo) => !todo.completed);
+   
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 }
