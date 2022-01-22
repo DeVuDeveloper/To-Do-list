@@ -27,11 +27,10 @@ clearBtn.onclick = () => {
   listToDo.clearCompleted();
   renderList(listToDo);
 };
-
-const dragArea = tasksToDo;
-new Sortable(dragArea, {
-  handle: '.dragging',
-  animation: 150,
+ 
+let dragArea = tasksToDo;
+dragArea = new Sortable(dragArea, {
+  handle: '.dragging',animation: 150,
 });
 
 refresh.onclick = () => {
