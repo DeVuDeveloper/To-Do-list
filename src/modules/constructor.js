@@ -6,11 +6,11 @@ class ToDo {
   }
 
   addToDo = (description) => {
-    const id = `id${Math.random().toString(16).slice(2)}`;
     const index = this.list.length + 1;
     const completed = false;
+    
     this.list.push({
-      description, completed, index, id,
+      description, completed, index,
     });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   };
@@ -30,15 +30,18 @@ class ToDo {
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  completeToDo = (todoId, status) => {
-    const selected = this.list.findIndex((element) => element.id === todoId);
-    this.list[selected].completed = status;
+  completedToDo = (index) => {
+    const toDo = this.list.find((todo) => Number(index) === todo.index);
+      if (toDo.completed === true) {
+        toDo.completed = false;
+    } else {
+        toDo.completed = true;
+    }
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   };
 
   clearCompleted() {
     this.list = this.list.filter((todo) => !todo.completed);
-
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 }

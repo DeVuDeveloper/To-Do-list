@@ -15,17 +15,19 @@ const addBtn = document.querySelector('.add');
 const refresh = document.querySelector('.refresh');
 const tasksToDo = document.querySelector('#drag');
 const dragArea = tasksToDo;
-const drag = document.querySelector('.dragging');
 
 addBtn.onclick = () => {
   const description = document.querySelector('#input').value;
-  document.querySelector('#input').value = '';
-  listToDo.addToDo(description);
-  renderList(listToDo);
+  if (description) {
+    document.querySelector('#input').value = '';
+    listToDo.addToDo(description);
+    renderList(listToDo);
+  }
 };
 
 const clearBtn = document.querySelector('.clear-all');
-clearBtn.onclick = () => {
+clearBtn.onclick = (e) => {
+  e.preventDefault();
   listToDo.clearCompleted();
   renderList(listToDo);
 };
