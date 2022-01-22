@@ -4,16 +4,17 @@ import '@fortawesome/fontawesome-free/js/solid.js';
 import '@fortawesome/fontawesome-free/js/regular.js';
 import '@fortawesome/fontawesome-free/js/brands.js';
 
-import Sortable from 'sortablejs';
+
 import renderList from './modules/render.js';
 import ToDo from './modules/constructor.js';
+import dragArea from './modules/dragging.js'
 
 let listToDo = new ToDo();
 renderList(listToDo);
 
 const addBtn = document.querySelector('.add');
 const refresh = document.querySelector('.refresh');
-const tasksToDo = document.querySelector('#drag');
+
 
 addBtn.onclick = () => {
   const description = document.querySelector('#input').value;
@@ -27,11 +28,6 @@ clearBtn.onclick = () => {
   listToDo.clearCompleted();
   renderList(listToDo);
 };
- 
-let dragArea = tasksToDo;
-dragArea = new Sortable(dragArea, {
-  handle: '.dragging',animation: 150,
-});
 
 refresh.onclick = () => {
   listToDo = new ToDo();
