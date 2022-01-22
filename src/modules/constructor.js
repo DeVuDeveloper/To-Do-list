@@ -1,8 +1,8 @@
 class ToDo {
   constructor() {
-      this.list = localStorage.getItem('toDoTask') ?
-      JSON.parse(localStorage.getItem('toDoTask')) :
-      [];
+    this.list = localStorage.getItem('toDoTask')
+      ? JSON.parse(localStorage.getItem('toDoTask'))
+      : [];
   }
 
   addToDo = (description) => {
@@ -10,7 +10,7 @@ class ToDo {
     const index = this.list.length + 1;
     const completed = false;
     this.list.push({
-      description, completed, index, id
+      description, completed, index, id,
     });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   };
