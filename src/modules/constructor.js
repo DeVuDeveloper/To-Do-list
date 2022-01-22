@@ -31,7 +31,7 @@ class ToDo {
 
   completedToDo = (index) => {
     const toDo = this.list.find((todo) => Number(index) === todo.index);
-      if (toDo.completed === true) {
+    if (toDo.completed === true) {
       toDo.completed = false;
     } else {
       toDo.completed = true;
