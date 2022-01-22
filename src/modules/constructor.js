@@ -1,6 +1,6 @@
 class ToDo {
   constructor() {
-    this.list = localStorage.getItem('toDoTask') ?
+      this.list = localStorage.getItem('toDoTask') ?
       JSON.parse(localStorage.getItem('toDoTask')) :
       [];
   }
@@ -9,16 +9,10 @@ class ToDo {
     const id = `id${Math.random().toString(16).slice(2)}`;
     const index = this.list.length + 1;
     const completed = false;
-    this.list.push({ description, completed, index, id });
-    localStorage.setItem('toDoTask', JSON.stringify(this.list));
-  };
-
-  adjustIndex() {
-    let i = 0;
-    this.list.forEach((todo) => {
-      i += 1;
-      todo.index = i;
+    this.list.push({
+      description, completed, index, id
     });
+    localStorage.setItem('toDoTask', JSON.stringify(this.list));
   };
 
   removeToDo = (index) => {

@@ -40,7 +40,7 @@ describe('testing remove function', () => {
 describe('editing test', () => {
   const toDo = new ToDo();
   toDo.addToDo({
-    description: 'add-one-toDo'
+    description: 'add-one-toDo',
   });
   const newDescription = toDo.list[0];
   newDescription.description = 'change me';
@@ -49,7 +49,6 @@ describe('editing test', () => {
   it('testing if new description is edited', () => {
     expect(toDo.list[0].description).toBe('change me');
   });
-
 });
 
 describe('testing completed tasks', () => {
@@ -64,19 +63,14 @@ describe('testing completed tasks', () => {
 });
 
 describe('testing clear all completed', () => {
-
   const toDo = new ToDo();
-
   const firstTask = toDo.list[0];
   firstTask.completed = true;
   toDo.editToDo(firstTask);
-
   const secondTask = toDo.list[1];
   secondTask.completed = true;
   toDo.editToDo(secondTask);
-
   it('Checking if the list is empty', () => {
-
     toDo.clearCompleted();
     expect(toDo.list.length).toBe(0);
   });
