@@ -20,7 +20,7 @@ const renderList = (listToDo) => {
     spanEl.classList.add('grey');
 
     spanEl.appendChild(checkbox);
-    checkbox.setAttribute('id', todo.id);
+    checkbox.setAttribute('id', todo.index);
     checkbox.setAttribute('type', 'checkbox');
     checkbox.classList.add('right', 'check');
     spanEl.appendChild(textInput);
@@ -87,7 +87,7 @@ const renderList = (listToDo) => {
   checkCompleted.forEach((todo) => {
     todo.onclick = ('change', (e) => {
       const { id } = e.target;
-      listToDo.completeToDo(id, e.target.checked);
+      listToDo.completedToDo(id, e.target.checked);
       e.target.parentNode.lastElementChild.classList.add('completed');
     });
   });

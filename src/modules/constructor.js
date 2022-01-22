@@ -1,24 +1,23 @@
-import completedTasks from './clear.js';
-
-export default class ToDo {
+class ToDo {
   constructor() {
     this.list = localStorage.getItem('toDoTask')
       ? JSON.parse(localStorage.getItem('toDoTask'))
       : [];
   }
 
-  addToDo(todo) {
-    this.list.push(todo);
-    localStorage.setItem('toDoTask', JSON.stringify(this.list));
-  }
-
-  removeToDo(todoID) {
-    this.list = this.list.filter((todo) => todo.index !== todoID);
-    this.list.forEach((todo, index) => {
-      todo.index = index + 1;
+  addToDo = (description) => {
+    const index = this.list.length + 1;
+    const completed = false;
+    this.list.push({
+      description, completed, index,
     });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
-  }
+  };
+
+  removeToDo = (index) => {
+    this.list = this.list.filter((todo) => Number(index) !== todo.index);
+    localStorage.setItem('toDoTask', JSON.stringify(this.list));
+  };
 
   editToDo(todoId, todoDescription) {
     this.list = this.list.map((todo) => {
@@ -30,15 +29,20 @@ export default class ToDo {
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 
-  completeToDo(todoId, status) {
-    completedTasks(this.list, todoId, status);
-  }
+  completedToDo = (index) => {
+    const toDo = this.list.find((todo) => Number(index) === todo.index);
+    if (toDo.completed === true) {
+      toDo.completed = false;
+    } else {
+      toDo.completed = true;
+    }
+    localStorage.setItem('toDoTask', JSON.stringify(this.list));
+  };
 
   clearCompleted() {
     this.list = this.list.filter((todo) => !todo.completed);
-    this.list.forEach((todo, index) => {
-      todo.index = index + 1;
-    });
     localStorage.setItem('toDoTask', JSON.stringify(this.list));
   }
 }
+
+export default ToDo;

@@ -14,33 +14,26 @@ renderList(listToDo);
 const addBtn = document.querySelector('.add');
 const refresh = document.querySelector('.refresh');
 const tasksToDo = document.querySelector('#drag');
+const dragArea = tasksToDo;
 
 addBtn.onclick = () => {
-  const id = `id${Math.random().toString(16).slice(2)}`;
   const description = document.querySelector('#input').value;
-  const completed = false;
-  const index = listToDo.list.length + 1;
-
-  const newTask = {
-    id, description, completed, index,
-  };
   if (description) {
     document.querySelector('#input').value = '';
-    listToDo.addToDo(newTask);
+    listToDo.addToDo(description);
     renderList(listToDo);
   }
 };
 
 const clearBtn = document.querySelector('.clear-all');
-clearBtn.onclick = () => {
+clearBtn.onclick = (e) => {
+  e.preventDefault();
   listToDo.clearCompleted();
   renderList(listToDo);
 };
 
-const dragArea = tasksToDo;
 new Sortable(dragArea, {
-  handle: '.dragging',
-  animation: 150,
+  handle: '.dragging', animation: 150,
 });
 
 refresh.onclick = () => {
