@@ -44,10 +44,6 @@ Feel free to check the [issues page](https://github.com/VuDej/To-Do-list/issues/
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- A special thanks Microverse.
-
 ## 📝 License
 
 This project is [MIT](LICENSE) licensed.
